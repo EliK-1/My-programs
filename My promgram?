@@ -1,0 +1,40 @@
+
+//  Made by EliK on December 14th, 2019
+
+function setup() {
+	createCanvas(400,400);
+	background(100);
+}	
+var ax = 0.0;
+var a=4;
+var bounce = 0;
+var points = 0;
+var ry = 200;
+var y = 200;
+var x = 200;
+var metersT=0;
+function draw() { 
+	
+	noStroke();
+	background(99, 99, 99);
+	rect(380,ry,50,100);
+	rect(-30,y-50,50,100);
+	ellipse(x,y,30,30);
+	x+=a;
+	y+=ax;
+	if(x>430){points=0;x=200;a=4;ax=0.0}
+	fill(255);
+	//print(points);
+	if(x<40){a=a*-1;}
+	if(y>ry&&y<ry+100){
+	if(x>width-40){a=a*-1;a=a*1.01;points++;}
+	}if(y>width-20){ax=ax*-1;ax=ax*1.1;}
+	if(y<20){ax=ax*-1;}
+	if(y>ry&&y<ry+50&&x>width-40){
+		ax=ax-1;
+	}if(y>ry+50&&y<ry+100&&x>width-40){
+		ax=ax+1;
+	}
+	if(keyIsPressed){
+		if(keyIsDown(38)){ry-=2;}
+		if(keyIsDown(40)){ry+=2;}}}
